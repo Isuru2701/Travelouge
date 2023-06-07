@@ -22,6 +22,19 @@
                  Name="passwordBox" Margin="0,285,0,0">
 
         </PasswordBox>
+
+        <Button
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Width="200"
+            Height="52"
+            Margin="0,308,0,0"
+            Name="loginButton"
+            Content="Login"
+            Click="loginButton_Click">
+
+        </Button>
+
         <Label Content="Login"
                FontSize="30px"
                Foreground="Aqua"

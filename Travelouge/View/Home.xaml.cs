@@ -12,27 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Travelouge.View;
+using Travelouge.Model;
 
-namespace Travelouge.Model
+namespace Travelouge.View
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    /// Interaction logic for Home.xaml
     /// </summary>
-    public partial class Login : Page
+    public partial class Home : Page
     {
-        public Login()
+        public Home()
         {
             InitializeComponent();
-        }
-
-        private void loginButton_Click(object sender, RoutedEventArgs e)
-        {
-            //TODO: Replace with db check
-            if(usernameBox.Text == "123" && passwordBox.Password == "123")
-            {
-                NavigationService.Navigate(new Home());
-            }
         }
     }
 }
