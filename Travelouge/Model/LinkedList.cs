@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Travelouge.Model
 {
-    internal class PackList
+    class LinkedList
     {
+        class Node
+        {
+            public int id;
+            public string name;
+
+        }
     }
 }
