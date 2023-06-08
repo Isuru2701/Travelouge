@@ -8,20 +8,21 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Home">
 
-    <Grid>
+    <Grid Background="WhiteSmoke">
         <TextBox
             Name="locationBox"
-            Margin="266,122,307,248">
-            
+            Margin="31,114,542,256">
+
         </TextBox>
         <Button
             Name="checkButton"
             Click="checkButton_Click"
             Content="Check"
-            HorizontalAlignment="Center"
-            Margin="0,262,0,0"
-            VerticalAlignment="Top"
-            Height="52" Width="158"/>
+            HorizontalAlignment="Left"
+            Margin="31,0,0,0"
+            VerticalAlignment="Center"
+            Height="52" Width="227"/>
+        <Label Content="Add the places you'd like to visit" HorizontalAlignment="Left" Margin="31,83,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

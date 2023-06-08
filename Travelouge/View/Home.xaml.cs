@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +20,7 @@ namespace Travelouge.View
     /// </summary>
     public partial class Home : Page
     {
+        LinkedList<Location> locations = new LinkedList<Location>();
         public Home()
         {
             InitializeComponent();

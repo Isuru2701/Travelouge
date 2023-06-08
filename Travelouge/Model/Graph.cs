@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Travelouge.Model
 {
-    internal class Graph
+    class Graph
     {
 
 
@@ -31,7 +31,7 @@ namespace Travelouge.Model
 
         }
 
-        private double deg2rad(double v)
+        private double deg2rad(double deg)
         {
             return deg * (Math.PI / 180);
         }
