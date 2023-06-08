@@ -10,7 +10,6 @@ namespace Travelouge.Model
     {
         public string Name { get; set; }
         public string Address { get; set; }
-
         public double lat { get; set; }
         public double lng { get; set; }
 
