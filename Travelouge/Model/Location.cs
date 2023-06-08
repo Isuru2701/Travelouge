@@ -15,4 +15,6 @@ namespace Travelouge.Model
 
     }
 
+    
+
 }
