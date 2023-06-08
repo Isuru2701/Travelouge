@@ -15,7 +15,7 @@ namespace Travelouge.Model
          * calculates distance based on the Haversine formula
          * dont mind this too much
          */
-        public double calculateDistance(Location l1, Location l2)
+        public double calculateDisplacement(Location l1, Location l2)
         {
             
             var r = 6371; // Radius of the earth in km
@@ -35,5 +35,7 @@ namespace Travelouge.Model
         {
             return deg * (Math.PI / 180);
         }
+
+        
     }
 }

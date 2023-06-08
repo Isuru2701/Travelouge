@@ -48,6 +48,32 @@ namespace Travelouge.Model
                 return fetchData;
             }
         }
+
+        public async Task<RouteResponsePath> FindDistance(Location source, Location dest)
+        {
+            using(var client = new HttpClient())
+            {
+                var url = $"https://graphhopper.com/api/1/route?point={source.lat},{source.lng}&point={dest.lat},{dest.lng}&vehicle=car&locale=en&key={apiKey}";
+
+                var response = await client.GetAsync(url);
+                var content = await response.Content.ReadAsStringAsync();
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new Exception($"Error: {content}");
+                }
+
+                MessageBox.Show(content);
+
+                if (content == null)
+                {
+                    return null;
+                }
+
+                return JsonConvert.DeserializeObject<RouteResponsePath>(content);
+            }
+            
+        }
     }
 
     class GeocodingResult
@@ -74,6 +100,13 @@ namespace Travelouge.Model
     {
         public double lat { get; set; }
         public double lng { get; set; }
+
+    }
+
+    class RouteResponsePath
+    {
+        public double distance { get; set; }
+        public int time { get; set; }
 
     }
 
