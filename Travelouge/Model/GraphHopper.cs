@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Travelouge.Model
 {
@@ -32,7 +33,7 @@ namespace Travelouge.Model
                 {
                     return false;
                 }
-
+                
                 return true;
             }
         }
@@ -47,18 +48,21 @@ namespace Travelouge.Model
 
     class Hit
     {
-        public string Point { get; set; }
-        public string OsmId { get; set; }
-        public string OsmType { get; set; }
-        public string OsmKey { get; set; }
+        public MapPoint point { get; set; }
         public string Name { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-
         public string Street { get; set; }
         public string housenumber { get; set; }
         public string postcode { get; set; }
+
+    }
+
+    class MapPoint
+    {
+        public double lat { get; set; }
+        public double lng { get; set; }
 
     }
 

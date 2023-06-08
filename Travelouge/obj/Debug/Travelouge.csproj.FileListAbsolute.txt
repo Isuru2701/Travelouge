@@ -19,3 +19,5 @@ C:\Users\ASUS\Documents\Programs\Travelouge\Travelouge\obj\Debug\UserControls\Pa
 C:\Users\ASUS\Documents\Programs\Travelouge\Travelouge\bin\Debug\Newtonsoft.Json.dll
 C:\Users\ASUS\Documents\Programs\Travelouge\Travelouge\bin\Debug\Newtonsoft.Json.xml
 C:\Users\ASUS\Documents\Programs\Travelouge\Travelouge\obj\Debug\Travelouge.csproj.CopyComplete
+C:\Users\ASUS\Documents\Programs\Travelouge\Travelouge\obj\Debug\View\Home.g.cs
+C:\Users\ASUS\Documents\Programs\Travelouge\Travelouge\obj\Debug\View\Home.baml

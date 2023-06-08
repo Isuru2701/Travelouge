@@ -59,12 +59,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\CheckListItem.cs" />
-    <Compile Include="Model\CodeFile1.cs" />
     <Compile Include="Model\DBConn.cs" />
     <Compile Include="Model\GraphHopper.cs" />
     <Compile Include="Model\Location.cs" />
     <Compile Include="UserControls\PackingList.xaml.cs">
       <DependentUpon>PackingList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -79,6 +81,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserControls\PackingList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -113,8 +119,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
