@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Travelouge.Model
 {
-    internal class Location
+    class Location
     {
+        public string Name { get; set; }
+        public string Address { get; set; }
+
+
 
     }
 }
