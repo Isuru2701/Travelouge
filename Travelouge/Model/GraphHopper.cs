@@ -9,7 +9,13 @@ using System.Windows;
 
 namespace Travelouge.Model
 {
-    internal class GraphHopper
+    /**
+     * implementation of interaction logic with the graphhopper api
+     * 
+     * find the docs here :) https://docs.graphhopper.com/
+     */
+
+    class GraphHopper
     {
         private string apiKey = "ca28dd3c-03d1-4da1-a05f-f9436d645b6e";
 
