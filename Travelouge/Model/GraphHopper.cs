@@ -38,4 +38,27 @@ namespace Travelouge.Model
         }
     }
 
+    class GeocodingResult
+    {
+        public Hit[] Hits { get; set; }
+
+    }
+
+    class Hit
+    {
+        public string Point { get; set; }
+        public string OsmId { get; set; }
+        public string OsmType { get; set; }
+        public string OsmKey { get; set; }
+        public string Name { get; set; }
+        public string Country { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+
+        public string Street { get; set; }
+        public string housenumber { get; set; }
+        public string postcode { get; set; }
+
+    }
+
 }

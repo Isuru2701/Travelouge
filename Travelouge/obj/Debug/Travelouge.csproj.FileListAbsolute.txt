@@ -16,3 +16,6 @@ C:\Users\ASUS\Documents\Programs\Travelouge\Travelouge\obj\Debug\Travelouge.exe
 C:\Users\ASUS\Documents\Programs\Travelouge\Travelouge\obj\Debug\Travelouge.pdb
 C:\Users\ASUS\Documents\Programs\Travelouge\Travelouge\obj\Debug\UserControls\PackingList.g.cs
 C:\Users\ASUS\Documents\Programs\Travelouge\Travelouge\obj\Debug\UserControls\PackingList.baml
+C:\Users\ASUS\Documents\Programs\Travelouge\Travelouge\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ASUS\Documents\Programs\Travelouge\Travelouge\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ASUS\Documents\Programs\Travelouge\Travelouge\obj\Debug\Travelouge.csproj.CopyComplete
