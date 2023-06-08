@@ -25,7 +25,7 @@ namespace Travelouge
         public MainWindow()
         {
             InitializeComponent();
-            
+            Content = new View.Home();
         }
     }
 }

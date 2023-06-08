@@ -41,6 +41,7 @@ namespace Travelouge.Model
     class GeocodingResult
     {
         public Hit[] Hits { get; set; }
+        public int Took { get; set; }
 
     }
 

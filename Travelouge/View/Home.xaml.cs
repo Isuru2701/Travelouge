@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Travelouge.Model;
 
 namespace Travelouge.View
 {
@@ -23,6 +24,22 @@ namespace Travelouge.View
         public Home()
         {
             InitializeComponent();
+        }
+
+        private async void checkButton_Click(object sender, RoutedEventArgs e)
+        {
+            GraphHopper verifier = new GraphHopper();
+            bool flag = await verifier.VerifyLocation(locationBox.Text);
+
+            if (flag)
+            {
+                MessageBox.Show("Location is valid");
+
+            }
+            else
+            {
+                MessageBox.Show("Location is invalid");
+            }
         }
     }
 }

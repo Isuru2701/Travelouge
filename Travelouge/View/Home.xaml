@@ -9,9 +9,19 @@
       Title="Home">
 
     <Grid>
-        <TextBox Margin="266,122,307,248">
+        <TextBox
+            Name="locationBox"
+            Margin="266,122,307,248">
             
         </TextBox>
-        
+        <Button
+            Name="checkButton"
+            Click="checkButton_Click"
+            Content="Check"
+            HorizontalAlignment="Center"
+            Margin="0,262,0,0"
+            VerticalAlignment="Top"
+            Height="52" Width="158"/>
+
     </Grid>
 </Page>
