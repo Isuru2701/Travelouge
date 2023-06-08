@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\CheckListItem.cs" />
+    <Compile Include="Model\DBConn.cs" />
     <Compile Include="UserControls\PackingList.xaml.cs">
       <DependentUpon>PackingList.xaml</DependentUpon>
     </Compile>

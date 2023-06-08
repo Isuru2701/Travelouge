@@ -11,18 +11,17 @@ namespace Travelouge.Model
     public class PriorityQueue<T>
     {
         private List<T> heap;
-        private IComparer<T> comparer;
+        Func<T, int> selector;
 
         public PriorityQueue()
         {
             heap = new List<T>();
-            comparer = Comparer<T>.Default;
         }
 
-        public PriorityQueue(IComparer<T> comparer)
+        public PriorityQueue(Func<T, int> selector)
         {
             heap = new List<T>();
-            this.comparer = comparer;
+            this.selector = selector;
         }
 
         public void Enqueue(T item)
@@ -57,7 +56,7 @@ namespace Travelouge.Model
             while (index > 0)
             {
                 int parentIdx = (index - 1) / 2;
-                if (heap[index]. > 0)
+                if (selector(heap[index]) > selector(heap[parentIdx]))
                 {
                     Swap(index, parentIdx);
                     index = parentIdx;
@@ -78,11 +77,11 @@ namespace Travelouge.Model
                 int rightChildIdx = 2 * index + 2;
 
                 int largest = index;
-                if (leftChildIdx < size && comparer.Compare(heap[leftChildIdx], heap[largest]) > 0)
+                if (leftChildIdx < size && selector(heap[leftChildIdx]) > selector(heap[largest]))
                 {
                     largest = leftChildIdx;
                 }
-                if (rightChildIdx < size && comparer.Compare(heap[rightChildIdx], heap[largest]) > 0)
+                if (rightChildIdx < size && selector(heap[rightChildIdx]) > selector(heap[largest]))
                 {
                     largest = rightChildIdx;
                 }

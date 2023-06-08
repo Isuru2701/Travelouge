@@ -8,9 +8,9 @@ namespace Travelouge.Model
 {
     internal class CheckListItem
     {
-        String Text{ get; set; }
-        DateTime Date { get; set; }
-        int Priority{ get; set; }
-        bool Clearance{ get; set; }
+        public string Text{ get; set; }
+        public DateTime? Date { get; set; }
+        public int Priority{ get; set; }
+        public bool Clearance{ get; set; }
     }
 }
