@@ -33,7 +33,14 @@ namespace Travelouge.View
 
             if (location != null)
             {
-                locations.AddLast(location);
+                if (!locations.Contains(location))
+                {
+                    locations.AddLast(location);
+                }
+                else
+                {
+                    MessageBox.Show("Location already added");
+                }
             }
             else
             {
