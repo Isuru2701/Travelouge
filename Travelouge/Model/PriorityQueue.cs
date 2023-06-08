@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Travelouge.Model
 {
 
@@ -56,7 +57,7 @@ namespace Travelouge.Model
             while (index > 0)
             {
                 int parentIdx = (index - 1) / 2;
-                if (comparer.Compare(heap[index], heap[parentIdx]) > 0)
+                if (heap[index]. > 0)
                 {
                     Swap(index, parentIdx);
                     index = parentIdx;

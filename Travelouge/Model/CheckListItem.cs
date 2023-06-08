@@ -8,17 +8,9 @@ namespace Travelouge.Model
 {
     internal class CheckListItem
     {
-         String Text
-        {
-            get; set;
-        }
-         int Priority
-        {
-            get; set;
-        }
-         bool Clearance
-        {
-            get; set;
-        }
+        String Text{ get; set; }
+        DateTime Date { get; set; }
+        int Priority{ get; set; }
+        bool Clearance{ get; set; }
     }
 }
