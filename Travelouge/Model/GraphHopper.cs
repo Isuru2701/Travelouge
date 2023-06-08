@@ -13,7 +13,7 @@ namespace Travelouge.Model
     {
         private string apiKey = "ca28dd3c-03d1-4da1-a05f-f9436d645b6e";
 
-        public async Task<bool> VerifyLocation(string location)
+        public async Task<Location> VerifyLocation(string location)
         {
             using (var client = new HttpClient())
             {
@@ -29,12 +29,15 @@ namespace Travelouge.Model
 
                 var geocodingResult = JsonConvert.DeserializeObject<GeocodingResult>(content);
 
+                var fetchData= new Location(geocodingResult.Hits[0].Name,
+                    geocodingResult.Hits[0].point.lat,
+                    geocodingResult.Hits[0].point.lng);               
                 if (geocodingResult.Hits.Length == 0)
                 {
-                    return false;
+                    return null;
                 }
                 
-                return true;
+                return fetchData;
             }
         }
     }

@@ -11,18 +11,18 @@
     <Grid Background="WhiteSmoke">
         <TextBox
             Name="locationBox"
-            Margin="31,114,542,256">
+            Margin="10,55,563,358">
 
         </TextBox>
         <Button
             Name="checkButton"
             Click="checkButton_Click"
-            Content="Check"
+            Content="Add"
             HorizontalAlignment="Left"
-            Margin="31,0,0,0"
-            VerticalAlignment="Center"
+            Margin="10,97,0,0"
+            VerticalAlignment="Top"
             Height="52" Width="227"/>
-        <Label Content="Add the places you'd like to visit" HorizontalAlignment="Left" Margin="31,83,0,0" VerticalAlignment="Top"/>
+        <Label Content="Add the places you'd like to visit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

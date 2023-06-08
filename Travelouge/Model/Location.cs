@@ -9,10 +9,15 @@ namespace Travelouge.Model
     class Location
     {
         public string Name { get; set; }
-        public string Address { get; set; }
         public double lat { get; set; }
         public double lng { get; set; }
 
+        public Location(string name, double lat, double lng)
+        {
+            Name = name;
+            this.lat = lat;
+            this.lng = lng;
+        }
     }
 
     

@@ -29,16 +29,14 @@ namespace Travelouge.View
         private async void checkButton_Click(object sender, RoutedEventArgs e)
         {
             GraphHopper verifier = new GraphHopper();
-            bool flag = await verifier.VerifyLocation(locationBox.Text);
+            var location = await verifier.VerifyLocation(locationBox.Text);
 
-            if (flag)
+            if (location != null)
             {
-                MessageBox.Show("Location is valid");
-
+                locations.AddLast(location);
             }
             else
             {
-                MessageBox.Show("Location is invalid");
             }
         }
     }
