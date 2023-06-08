@@ -44,6 +44,7 @@ namespace Travelouge.View
             }
             else
             {
+                MessageBox.Show("Empty or invalid location");
             }
         }
     }

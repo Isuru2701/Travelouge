@@ -15,6 +15,10 @@ namespace Travelouge.Model
 
         public async Task<Location> VerifyLocation(string location)
         {
+            if(location == null || location.Equals(""))
+            {
+                return null;
+            }
             using (var client = new HttpClient())
             {
                 var url = $"https://graphhopper.com/api/1/geocode?q={Uri.EscapeDataString(location)}&key={apiKey}";
@@ -27,6 +31,10 @@ namespace Travelouge.Model
                     throw new Exception($"Error: {content}");
                 }
 
+                if(content == null)
+                {
+                    return null;
+                }
                 var geocodingResult = JsonConvert.DeserializeObject<GeocodingResult>(content);
 
                 var fetchData= new Location(geocodingResult.Hits[0].Name,

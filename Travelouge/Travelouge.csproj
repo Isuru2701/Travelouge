@@ -60,6 +60,7 @@
     </ApplicationDefinition>
     <Compile Include="Model\CheckListItem.cs" />
     <Compile Include="Model\DBConn.cs" />
+    <Compile Include="Model\Graph.cs" />
     <Compile Include="Model\GraphHopper.cs" />
     <Compile Include="Model\Location.cs" />
     <Compile Include="UserControls\PackingList.xaml.cs">
@@ -119,6 +120,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="scripts.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

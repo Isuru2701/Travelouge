@@ -9,11 +9,6 @@
       Title="Home">
 
     <Grid Background="WhiteSmoke">
-        <TextBox
-            Name="locationBox"
-            Margin="10,55,563,358">
-
-        </TextBox>
         <Button
             Name="checkButton"
             Click="checkButton_Click"
@@ -23,9 +18,13 @@
             VerticalAlignment="Top"
             Height="52" Width="227"/>
         <Label Content="Add the places you'd like to visit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <ListBox
-            Width="200px"
-            d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,154,590,10"/>
+
+        <TextBox
+            Name="locationBox" 
+            HorizontalAlignment="Left" Margin="10,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="227" Height="51"/>
+        <Canvas
+            Name="listCanvas"
+            Margin="261,0,10,301"/>
 
     </Grid>
 </Page>
