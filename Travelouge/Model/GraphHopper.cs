@@ -19,6 +19,7 @@ namespace Travelouge.Model
     {
         private string apiKey = "ca28dd3c-03d1-4da1-a05f-f9436d645b6e";
 
+        //use to verify if a location exists
         public async Task<Location> VerifyLocation(string location)
         {
             if(location == null || location.Equals(""))
@@ -55,6 +56,7 @@ namespace Travelouge.Model
             }
         }
 
+        //used to find the routing distance between two locations
         public async Task<RouteResponsePath> FindDistance(Location source, Location dest)
         {
             using(var client = new HttpClient())
