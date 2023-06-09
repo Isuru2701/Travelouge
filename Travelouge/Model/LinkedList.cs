@@ -14,14 +14,14 @@ namespace Travelouge.Model
      *@param <T> the type of the elements in the list
      *             
      */
-    public class LinkedList<T>
+    public class LinkedList
     {
         private class Node
         {
-            public T Data { get; }
+            public Location Data { get; }
             public Node Next { get; set; }
 
-            public Node(T data)
+            public Node(Location data)
             {
                 Data = data;
                 Next = null;
@@ -39,7 +39,7 @@ namespace Travelouge.Model
 
         public int Count => count;
 
-        public void AddFirst(T data)
+        public void AddFirst(Location data)
         {
             Node newNode = new Node(data);
             newNode.Next = head;
@@ -47,7 +47,7 @@ namespace Travelouge.Model
             count++;
         }
 
-        public void AddLast(T data)
+        public void AddLast(Location data)
         {
             Node newNode = new Node(data);
 
@@ -68,7 +68,7 @@ namespace Travelouge.Model
             count++;
         }
 
-        public bool Remove(T data)
+        public bool Remove(Location data)
         {
             if (head == null)
             {
@@ -97,7 +97,7 @@ namespace Travelouge.Model
             return false;
         }
 
-        public bool Contains(T data)
+        public bool Contains(Location data)
         {
             Node current = head;
             while (current != null)

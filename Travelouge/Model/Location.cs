@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Travelouge.Model
 {
-    class Location
+    public class Location
     {
         public string Name { get; set; }
         public double lat { get; set; }

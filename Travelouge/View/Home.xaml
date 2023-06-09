@@ -24,7 +24,11 @@
             HorizontalAlignment="Left" Margin="10,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="227" Height="51"/>
         <Canvas
             Name="listCanvas"
-            Margin="261,0,10,301"/>
+            Margin="242,0,0,0"/>
+        
+        <ScrollViewer
+            Name="locationList"
+            Margin="0,171,563,0"/>
 
     </Grid>
 </Page>
