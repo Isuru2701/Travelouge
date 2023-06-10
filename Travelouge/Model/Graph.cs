@@ -7,27 +7,51 @@ using System.Threading.Tasks;
 
 namespace Travelouge.Model
 {
-    //using an adjacency matrix
-    //limited to 5 locations for now
+    //using an adjacency list
     class Graph
     {
-        private Dictionary<Location, Dictionary<Location, double>> adjacencyList;
+        //this dict will contain a location, and a dict of all the locations it is connected to, with their distances
+        private Dictionary<string, Dictionary<string, double>> adjacencyList;
 
         public Graph()
         {
-            adjacencyList = new Dictionary<Location, Dictionary<Location, double>>();
+            adjacencyList = new Dictionary<string, Dictionary<string, double>>();
         }
 
-        public void addLocation(Location location)
+        public void addLocation(string location)
         {
+            //if location already exists, no point in adding one again
             if(!adjacencyList.ContainsKey(location))
             {
-                adjacencyList[location] = new Dictionary<Location, double>();
+                adjacencyList[location] = new Dictionary<string, double>();
             }
         }
 
-        public void addEdge(Location location, double distance)
+        public void addEdge(string source, string dest, double distance)
         {
+            if(!adjacencyList.ContainsKey(source) || !adjacencyList.ContainsKey(dest))
+            {
+                throw new Exception("One or more of the locations does not exist");
+            }
+            else
+            {
+                //since the graph is undirected, we add the edge to both the source and destination
+                adjacencyList[source][dest] = distance;
+                adjacencyList[dest][source] = distance;
+            }
+        }
+
+        public void printGraph()
+        {
+            foreach(string key in adjacencyList.Keys)
+            {
+                Console.WriteLine(key + " : ");
+
+                foreach(string dest in adjacencyList[key].Keys)
+                {
+                    Console.WriteLine(dest + " : " + adjacencyList[key][dest]);
+                }
+            }
             
         }
 
