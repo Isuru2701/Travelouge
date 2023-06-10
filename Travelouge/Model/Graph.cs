@@ -42,6 +42,21 @@ namespace Travelouge.Model
             }
         }
 
+        public void removeLocation(string location)
+        {
+            if (adjacencyList.ContainsKey(location))
+            {
+                adjacencyList.Remove(location);
+
+                foreach (var adjacentLocation in adjacencyList.Values)
+                {
+                    //goes inside each list of edges, and removes the edge that has the location as its destination
+                    adjacentLocation.RemoveAll(edge => edge.Destination == location);
+                }
+            }
+            
+        }
+
         public void printGraph()
         {
             foreach(string key in adjacencyList.Keys)

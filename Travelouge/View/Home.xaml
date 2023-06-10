@@ -23,7 +23,7 @@
             Name="locationBox" 
             HorizontalAlignment="Left" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Height="51"/>
         <Canvas
-            Name="listCanvas"
+            Name="graphCanvas"
             Margin="242,0,0,0"/>
         
         <ScrollViewer
