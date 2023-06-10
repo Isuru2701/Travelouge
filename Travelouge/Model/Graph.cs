@@ -7,8 +7,33 @@ using System.Threading.Tasks;
 
 namespace Travelouge.Model
 {
+    //using an adjacency matrix
+    //limited to 5 locations for now
     class Graph
     {
+        private Dictionary<Location, Dictionary<Location, double>> adjacencyList;
+
+        public Graph()
+        {
+            adjacencyList = new Dictionary<Location, Dictionary<Location, double>>();
+        }
+
+        public void addLocation(Location location)
+        {
+            if(!adjacencyList.ContainsKey(location))
+            {
+                adjacencyList[location] = new Dictionary<Location, double>();
+            }
+        }
+
+        public void addEdge(Location location, double distance)
+        {
+            
+        }
+
+
+
+
 
         /**
          * calculates distance based on the Haversine formula
