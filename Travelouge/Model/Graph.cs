@@ -11,11 +11,11 @@ namespace Travelouge.Model
     class Graph
     {
         //this dict will contain a location, and a dict of all the locations it is connected to, with their distances
-        private Dictionary<string, Dictionary<string, double>> adjacencyList;
+        private Dictionary<string, List<Edge>> adjacencyList;
 
         public Graph()
         {
-            adjacencyList = new Dictionary<string, Dictionary<string, double>>();
+            adjacencyList = new Dictionary<string,List<Edge>>();
         }
 
         public void addLocation(string location)
@@ -23,7 +23,7 @@ namespace Travelouge.Model
             //if location already exists, no point in adding one again
             if(!adjacencyList.ContainsKey(location))
             {
-                adjacencyList[location] = new Dictionary<string, double>();
+                adjacencyList[location] = new List<Edge>();
             }
         }
 
@@ -35,9 +35,10 @@ namespace Travelouge.Model
             }
             else
             {
+
                 //since the graph is undirected, we add the edge to both the source and destination
-                adjacencyList[source][dest] = distance;
-                adjacencyList[dest][source] = distance;
+                adjacencyList[source].Add(new Edge(dest, distance));
+                adjacencyList[dest].Add(new Edge(source, distance));
             }
         }
 
@@ -47,16 +48,13 @@ namespace Travelouge.Model
             {
                 Console.WriteLine(key + " : ");
 
-                foreach(string dest in adjacencyList[key].Keys)
+                foreach(Edge dest in adjacencyList[key])
                 {
-                    Console.WriteLine(dest + " : " + adjacencyList[key][dest]);
+                    Console.WriteLine(dest.Destination) ;
                 }
             }
             
         }
-
-
-
 
 
         /**
@@ -89,14 +87,12 @@ namespace Travelouge.Model
 
     public class Edge
     {
-        public Location Source { get; }
-        public Location Target { get; }
+        public string Destination { get; }
         public double Weight { get; }
 
-        public Edge(Location source, Location target, double weight)
+        public Edge(string target, double weight)
         {
-            Source = source;
-            Target = target;
+            Destination = target;
             Weight = weight;
         }
     }
