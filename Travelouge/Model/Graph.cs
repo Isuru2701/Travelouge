@@ -10,44 +10,6 @@ namespace Travelouge.Model
     class Graph
     {
 
-        private Dictionary<string, Dictionary<string, double>> adjacencyList;
-
-        public Graph()
-        {
-            adjacencyList = new Dictionary<string, Dictionary<string, double>>();
-        }
-
-        public void AddLocation(string location)
-        {
-            if (!adjacencyList.ContainsKey(location))
-                adjacencyList[location] = new Dictionary<string, double>();
-        }
-
-        public void AddDistance(string location1, string location2, double distance)
-        {
-            AddLocation(location1);
-            AddLocation(location2);
-
-            adjacencyList[location1][location2] = distance;
-            adjacencyList[location2][location1] = distance;
-        }
-
-        public List<Edge> GetEdges()
-        {
-            List<Edge> edges = new List<Edge>();
-
-            foreach (var source in adjacencyList)
-            {
-                foreach (var target in source.Value)
-                {
-                    edges.Add(new Edge(source.Key, target.Key, target.Value));
-                }
-            }
-
-            return edges;
-        }
-
-
         /**
          * calculates distance based on the Haversine formula
          * dont mind this too much
@@ -78,11 +40,11 @@ namespace Travelouge.Model
 
     public class Edge
     {
-        public string Source { get; }
-        public string Target { get; }
+        public Location Source { get; }
+        public Location Target { get; }
         public double Weight { get; }
 
-        public Edge(string source, string target, double weight)
+        public Edge(Location source, Location target, double weight)
         {
             Source = source;
             Target = target;
