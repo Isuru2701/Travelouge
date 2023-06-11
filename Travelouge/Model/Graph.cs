@@ -97,8 +97,8 @@ namespace Travelouge.Model
             adjacencyList.Clear();
         }
 
-        
-        public List<string> FindShortestRoute(out double totalDistance, out double totalTime)
+
+        public Dictionary<string, (double, double)> FindShortestRoute(out double totalDistance, out double totalTime)
         {
             //using the Nearest neighbour technique
 
@@ -114,10 +114,9 @@ namespace Travelouge.Model
             totalTime = 0;
             //list of locations that have been visited
             //this'll contain the order in in which the locations are visited
-            List<string> tours = new List<string>();
+            Dictionary<string, (double, double)> tours = new Dictionary<string, (double, double)>();
 
             List<string> locations = GetLocations();
-
 
             //pick an arbitrary starting point
             string currentLocation = locations[0];
@@ -130,22 +129,28 @@ namespace Travelouge.Model
 
                 foreach (Edge edge in adjacencyList[currentLocation])
                 {
-                    if (!tours.Contains(edge.Destination) && edge.Weight < minDistance)
+                    if (!tours.ContainsKey(edge.Destination) && edge.Weight < minDistance)
                     {
                         minDistance = edge.Weight;
                         nearestLocation = edge.Destination;
                     }
                 }
 
-                
-                totalTime += adjacencyList[currentLocation].Find(edge => edge.Destination == nearestLocation).Time;
+                totalDistance += minDistance;
+
+                var time = adjacencyList[currentLocation].Find(edge => edge.Destination == nearestLocation).Time;
+
+                //add location to the list, and mark it as visited and increment distance travelled
+                tours.Add(nearestLocation, (minDistance, time));
+
+                //add time to total time
+                totalTime += time;
 
                 //move to that point
                 currentLocation = nearestLocation;
 
-                //add location to the list, and mark it as visited and increment distance travelled
-                tours.Add(currentLocation);
-                totalDistance += minDistance;
+                
+                
                 
             }
    

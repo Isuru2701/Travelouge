@@ -49,6 +49,9 @@ namespace Travelouge.View
                         }
                     }
 
+                    //add to label
+                    locationsLabel.Content += location.Name + "\n";
+
 
                 }
                 else
@@ -64,26 +67,31 @@ namespace Travelouge.View
 
         private void kruskalButton_Click(object sender, RoutedEventArgs e)
         {
-            double distance;
+            double distance, time;
             string reply = "";
+
             
-            foreach(string s in locations.FindShortestRoute(out distance))
+            foreach (string s in locations.FindShortestRoute(out distance, out time))
             {
                 reply += s + "\n";
             }
 
-            
+            reply += "Total distance: " + distance + "\n" + "Total time: " + time + "\n";
+
+            MessageBox.Show(reply);
+            pathLabel.Content = reply;
+
+
+
+
         }
 
-        //used to draw on canvas
-        private void Draw()
-        {
-
-        }
 
         private void resetButton_Click(object sender, RoutedEventArgs e)
         {
             locations.Reset();
+            pathLabel.Content = "";
+            locationsLabel.Content = "";
         }
     }
 }

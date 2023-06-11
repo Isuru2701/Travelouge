@@ -38,10 +38,10 @@
             VerticalAlignment="Top"
             Height="52" Width="227"
             Click="resetButton_Click"/>
-        <Label Name="PathLabel"
+        <Label Name="pathLabel"
                FontSize="20px"
              
-               Content="&lt;path info appears here&gt;" HorizontalAlignment="Left" Margin="295,18,0,0" VerticalAlignment="Top"/>
+               Content="&lt;path info appears here&gt;" HorizontalAlignment="Left" Margin="295,97,0,0" VerticalAlignment="Top"/>
         <Label 
             Name="locationsLabel"
             Content="&lt;&gt;" HorizontalAlignment="Left" Margin="10,287,0,0" VerticalAlignment="Top"/>
