@@ -15,13 +15,13 @@ namespace Travelouge.Model
 
         public Graph()
         {
-            adjacencyList = new Dictionary<string,List<Edge>>();
+            adjacencyList = new Dictionary<string, List<Edge>>();
         }
 
         public void AddLocation(string location)
         {
             //if location already exists, no point in adding one again
-            if(!adjacencyList.ContainsKey(location))
+            if (!adjacencyList.ContainsKey(location))
             {
                 adjacencyList[location] = new List<Edge>();
             }
@@ -29,7 +29,7 @@ namespace Travelouge.Model
 
         public void AddEdge(string source, string dest, double distance, double time)
         {
-            if(!adjacencyList.ContainsKey(source) || !adjacencyList.ContainsKey(dest))
+            if (!adjacencyList.ContainsKey(source) || !adjacencyList.ContainsKey(dest))
             {
                 throw new Exception("One or more of the locations does not exist");
             }
@@ -54,19 +54,19 @@ namespace Travelouge.Model
                     adjacentLocation.RemoveAll(edge => edge.Destination == location);
                 }
             }
-            
+
         }
 
         public List<string> GetLocations()
         {
             List<string> locations = new List<string>();
-            foreach(string location in adjacencyList.Keys)
+            foreach (string location in adjacencyList.Keys)
             {
                 locations.Add(location);
             }
             return locations;
         }
-       
+
 
         public bool Contains(string location)
         {
@@ -78,18 +78,18 @@ namespace Travelouge.Model
         {
             string reply = "graph\n";
 
-            foreach(string key in adjacencyList.Keys)
+            foreach (string key in adjacencyList.Keys)
             {
                 reply += $"\t src {key}:\n";
 
-                foreach(Edge dest in adjacencyList[key])
+                foreach (Edge dest in adjacencyList[key])
                 {
                     reply += $"\t\t(dest {dest.Destination}, weight {dest.Weight})";
                 }
                 reply += "\n";
             }
             return reply;
-            
+
         }
 
         public void Reset()
@@ -97,7 +97,15 @@ namespace Travelouge.Model
             adjacencyList.Clear();
         }
 
+        
+        public List<Location> FindShortestRoute()
+        {
+            List<Location> tours = new List<Location>();
 
+
+
+            return tours;
+        }
 
 
         private double CalculateTotalDistance(List<Edge> route)
