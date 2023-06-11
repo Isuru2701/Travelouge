@@ -64,8 +64,15 @@ namespace Travelouge.View
 
         private void kruskalButton_Click(object sender, RoutedEventArgs e)
         {
+            double distance;
+            string reply = "";
             
-            MessageBox.Show(locations.ToString());
+            foreach(string s in locations.FindShortestRoute(out distance))
+            {
+                reply += s + "\n";
+            }
+
+            MessageBox.Show(reply);
         }
 
         private void resetButton_Click(object sender, RoutedEventArgs e)

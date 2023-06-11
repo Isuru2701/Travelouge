@@ -112,6 +112,7 @@ namespace Travelouge.Model
              */
             totalDistance = 0;
             //list of locations that have been visited
+            //this'll contain the order in in which the locations are visited
             List<string> tours = new List<string>();
 
             List<string> locations = GetLocations();
@@ -122,7 +123,7 @@ namespace Travelouge.Model
 
             foreach (string location in locations)
             {
-                  //find the nearest unvisited point from the current point
+                //find the nearest unvisited point from the current point
                 double minDistance = double.MaxValue;
                 string nearestLocation = "";
 
@@ -140,6 +141,7 @@ namespace Travelouge.Model
 
                 //add location to the list, and mark it as visited and increment distance travelled
                 tours.Add(currentLocation);
+                totalDistance += minDistance;
             }
    
             return tours;
