@@ -27,7 +27,7 @@ namespace Travelouge.Model
             }
         }
 
-        public void AddEdge(string source, string dest, double distance)
+        public void AddEdge(string source, string dest, double distance, double time)
         {
             if(!adjacencyList.ContainsKey(source) || !adjacencyList.ContainsKey(dest))
             {
@@ -37,8 +37,8 @@ namespace Travelouge.Model
             {
 
                 //since the graph is undirected, we add the edge to both the source and destination
-                adjacencyList[source].Add(new Edge(dest, distance));
-                adjacencyList[dest].Add(new Edge(source, distance));
+                adjacencyList[source].Add(new Edge(dest, distance, time));
+                adjacencyList[dest].Add(new Edge(source, distance, time));
             }
         }
 
@@ -126,7 +126,7 @@ namespace Travelouge.Model
                 if(set.Find(edge.Destination) != set.Find(edge.Destination))
                 {
                     //add the edge to the MST
-                    MST.AddEdge(edge.Destination, edge.Destination, edge.Weight);
+                    MST.AddEdge(edge.Destination, edge.Destination, edge.Weight, edge.Time);
 
                     //union the two vertices
                     set.Union(edge.Destination, edge.Destination);
@@ -172,10 +172,13 @@ namespace Travelouge.Model
         public string Destination { get; }
         public double Weight { get; }
 
-        public Edge(string target, double weight)
+        public double Time { get; }
+
+        public Edge(string target, double weight, double time)
         {
             Destination = target;
             Weight = weight;
+            Time = time;
         }
     }
 

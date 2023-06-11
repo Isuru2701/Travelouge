@@ -59,24 +59,24 @@ namespace Travelouge.Model
         }
 
         //used to find the routing distance between two locations
-        public async Task<RouteResponsePath> FindDistance(Location source, Location dest)
+        public async Task<RouteResponsePath> FindDistance(string source, string dest)
         {
             using(var client = new HttpClient())
             {
                 //get lat and lng info for source and dest
-                var sourceLocation = await VerifyLocation(source.Name);
+                var sourceLocation = await VerifyLocation(source);
                 if(sourceLocation == null)
                 {
                     return null;
                 }
 
-                var destLocation = await VerifyLocation(dest.Name);
+                var destLocation = await VerifyLocation(dest);
                 if(destLocation == null)
                 {
                     return null;
                 }
 
-                var url = $"https://graphhopper.com/api/1/route?point={source.lat},{source.lng}&point={dest.lat},{dest.lng}&vehicle=car&locale=en&key={apiKey}";
+                var url = $"https://graphhopper.com/api/1/route?point={sourceLocation.lat},{sourceLocation.lng}&point={destLocation.lat},{destLocation.lng}&vehicle=car&locale=en&key={apiKey}";
 
                 var response = await client.GetAsync(url);
                 var content = await response.Content.ReadAsStringAsync();
