@@ -96,51 +96,10 @@ namespace Travelouge.Model
             adjacencyList.Clear();
         }
 
+
         public Graph Kruskal()
         {
-            //create a new graph to store the MST
-            Graph MST = new Graph();
 
-            //create a new disjoint set to keep track of which vertices are connected
-            DisjointSet set = new DisjointSet();
-
-            //add all the vertices to the disjoint set
-            foreach(string vertex in adjacencyList.Keys)
-            {
-                set.MakeSet(vertex);
-            }
-
-            //create a list of all the edges in the graph
-            List<Edge> edges = new List<Edge>();
-
-            foreach(string vertex in adjacencyList.Keys)
-            {
-                foreach(Edge edge in adjacencyList[vertex])
-                {
-                    edges.Add(edge);
-                }
-            }
-
-            //sort the edges by weight
-            edges.Sort((x, y) => x.Weight.CompareTo(y.Weight));
-
-            //for each edge in the list of edges
-            foreach(Edge edge in edges)
-            {
-                //if the edge connects two vertices that are not already connected
-                if(set.Find(edge.Destination) != set.Find(edge.Destination))
-                {
-                    //add the edge to the MST
-                    MST.AddEdge(edge.Destination, edge.Destination, edge.Weight, edge.Time);
-
-                    //union the two vertices
-                    set.Union(edge.Destination, edge.Destination);
-                }
-            }
-
-            return MST;
-
-            
         }
 
 
@@ -184,43 +143,6 @@ namespace Travelouge.Model
             Destination = target;
             Weight = weight;
             Time = time;
-        }
-    }
-
-    public class DisjointSet
-    {
-        private Dictionary<string, string> parent;
-
-        public DisjointSet()
-        {
-            parent = new Dictionary<string, string>();
-        }
-
-        public void MakeSet(string vertex)
-        {
-            parent[vertex] = vertex;
-        }
-
-        public string Find(string vertex)
-        {
-            if (parent[vertex] != vertex)
-            {
-                // Path compression
-                parent[vertex] = Find(parent[vertex]);
-            }
-
-            return parent[vertex];
-        }
-
-        public void Union(string vertex1, string vertex2)
-        {
-            string root1 = Find(vertex1);
-            string root2 = Find(vertex2);
-
-            if (root1 != root2)
-            {
-                parent[root2] = root1;
-            }
         }
     }
 }
