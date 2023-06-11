@@ -98,7 +98,7 @@ namespace Travelouge.Model
         }
 
         
-        public List<string> FindShortestRoute(out double totalDistance)
+        public List<string> FindShortestRoute(out double totalDistance, out double totalTime)
         {
             //using the Nearest neighbour technique
 
@@ -111,6 +111,7 @@ namespace Travelouge.Model
              * 6. Do not return to starting point
              */
             totalDistance = 0;
+            totalTime = 0;
             //list of locations that have been visited
             //this'll contain the order in in which the locations are visited
             List<string> tours = new List<string>();
@@ -136,12 +137,16 @@ namespace Travelouge.Model
                     }
                 }
 
+                
+                totalTime += adjacencyList[currentLocation].Find(edge => edge.Destination == nearestLocation).Time;
+
                 //move to that point
                 currentLocation = nearestLocation;
 
                 //add location to the list, and mark it as visited and increment distance travelled
                 tours.Add(currentLocation);
                 totalDistance += minDistance;
+                
             }
    
             return tours;
