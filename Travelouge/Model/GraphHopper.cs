@@ -36,7 +36,7 @@ namespace Travelouge.Model
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw new Exception($"Error: {content}");
+                    MessageBox.Show("an error occured");
                 }
 
                 if(content == null)
@@ -61,6 +61,7 @@ namespace Travelouge.Model
         //used to find the routing distance between two locations
         public async Task<RouteResponsePath> FindDistance(string source, string dest)
         {
+            try{
             using(var client = new HttpClient())
             {
                 //get lat and lng info for source and dest
@@ -93,15 +94,21 @@ namespace Travelouge.Model
                         );
                 }
 
-                if (content == null)
+                if (content == null || content == "")
                 {
                     return null;
                 }
-                MessageBox.Show(content);
 
                 var json = JsonConvert.DeserializeObject<RoutingResult>(content);
                 return json.paths[0];
             }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
+
             
         }
     }

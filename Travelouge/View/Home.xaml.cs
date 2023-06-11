@@ -70,9 +70,11 @@ namespace Travelouge.View
             double distance, time;
             string reply = "";
 
-            var locationDictionary = locations.FindShortestRoute(out distance, out time);
+            try
+            {
 
-            
+                var locationDictionary = locations.FindShortestRoute(out distance, out time);
+
 
             foreach (string s in locationDictionary.Keys)
             {
@@ -84,6 +86,11 @@ namespace Travelouge.View
             MessageBox.Show(reply);
             pathLabel.Text = reply;
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
 
 
