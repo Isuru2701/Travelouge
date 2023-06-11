@@ -70,16 +70,23 @@ namespace Travelouge.View
             double distance, time;
             string reply = "";
 
-            
-            foreach (string s in locations.FindShortestRoute(out distance, out time))
-            {
-                reply += s + "\n";
-            }
+            var locationDictionary = locations.FindShortestRoute(out distance, out time);
 
+
+
+            foreach (string s in locationDictionary.Keys)
+            {
+                //formatting time
+                TimeSpan timeSpan = TimeSpan.FromMilliseconds(locationDictionary[s].Item2);
+                string formattedTime = timeSpan.ToString(@"hh\:mm\:ss");
+
+                reply += s + $" ({locationDictionary[s].Item1 / 1000}km | {formattedTime} )   -> \n";
+            }
+            reply += "END\n";
             reply += "Total distance: " + distance + "\n" + "Total time: " + time + "\n";
 
             MessageBox.Show(reply);
-            pathLabel.Content = reply;
+            pathLabel.Text = reply;
 
 
 
@@ -90,7 +97,7 @@ namespace Travelouge.View
         private void resetButton_Click(object sender, RoutedEventArgs e)
         {
             locations.Reset();
-            pathLabel.Content = "";
+            pathLabel.Text = "";
             locationsLabel.Content = "";
         }
     }
