@@ -43,8 +43,8 @@ namespace Travelouge.View
                     {
                         if (otherLocation != location.Name)
                         {
-                            var distance = await verifier.GetDistance(location.Name, otherLocation);
-                            locations.AddEdge(location.Name, otherLocation, distance);
+                            var route = await verifier.FindDistance(location.Name, otherLocation);
+                            locations.AddEdge(location.Name, otherLocation, route.distance, route.time);
                         }
                     }
 

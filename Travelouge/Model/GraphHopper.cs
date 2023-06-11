@@ -83,10 +83,14 @@ namespace Travelouge.Model
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw new Exception($"Error: {content}");
-                }
 
-                MessageBox.Show(content);
+                    MessageBox.Show(
+                        destLocation.Name + " " + sourceLocation.Name + " " +
+                        "\ndest " + destLocation.lat + " " + destLocation.lng + " " +
+                        "\nsource " + sourceLocation.lat + " " + sourceLocation.lng + "\n" +
+                        content
+                        );
+                }
 
                 if (content == null)
                 {

@@ -59,7 +59,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\CheckListItem.cs" />
-    <Compile Include="Model\DBConn.cs" />
     <Compile Include="Model\Graph.cs" />
     <Compile Include="Model\GraphHopper.cs" />
     <Compile Include="Model\Location.cs" />
