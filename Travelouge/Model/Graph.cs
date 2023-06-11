@@ -148,9 +148,7 @@ namespace Travelouge.Model
 
                 //move to that point
                 currentLocation = nearestLocation;
-
-                
-                
+ 
                 
             }
    

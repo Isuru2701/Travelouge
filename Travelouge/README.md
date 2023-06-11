@@ -1,8 +1,9 @@
 ﻿# Travelouge
 
-### a simple desktop application that helps you plan your next trip
-
+### a simple desktop application that implements the traveling salesperson problems in a practical way
+### uses graphs and a nearest neighbour approach
 
 ---
 ## Features
-- [ ] List the places you would like to visit along the way, and get the most efficient want to travel to all of them
+- [ ] Add a location
+- [ ] Find the most efficient method to travel to each location
