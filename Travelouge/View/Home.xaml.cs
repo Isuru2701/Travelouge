@@ -67,5 +67,10 @@ namespace Travelouge.View
             Graph MST = locations.Kruskal();
             MessageBox.Show(MST.ToString());
         }
+
+        private void resetButton_Click(object sender, RoutedEventArgs e)
+        {
+            locations.Reset();
+        }
     }
 }

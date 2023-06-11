@@ -97,8 +97,10 @@ namespace Travelouge.Model
                 {
                     return null;
                 }
+                MessageBox.Show(content);
 
-                return JsonConvert.DeserializeObject<RouteResponsePath>(content);
+                var json = JsonConvert.DeserializeObject<RoutingResult>(content);
+                return json.paths;
             }
             
         }
@@ -136,6 +138,10 @@ namespace Travelouge.Model
         public double distance { get; set; }
         public int time { get; set; }
 
+    }
+    class RoutingResult
+    {
+        public RouteResponsePath paths { get; set; }
     }
 
 }
