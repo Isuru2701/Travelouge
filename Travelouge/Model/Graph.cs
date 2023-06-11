@@ -98,71 +98,7 @@ namespace Travelouge.Model
         }
 
 
-        public List<Edge> FindShortestRoute(string start)
-        {
-            List<string> locations = adjacencyList.Keys.ToList();
-            locations.Remove(start);
 
-            List<List<string>> permutations = GeneratePermutations(locations);
-
-            List<Edge> shortestRoute = null;
-            double shortestDistance = double.MaxValue;
-
-            foreach (List<string> permutation in permutations)
-            {
-                List<Edge> route = new List<Edge>();
-                route.Add(new Edge(start, 0, 0)); // Start with the starting location
-                for (int i = 0; i < permutation.Count; i++)
-                {
-                    string currentLocation = permutation[i];
-                    string nextLocation = permutation[(i + 1) % permutation.Count];
-                    Edge edge = adjacencyList[currentLocation].Find(e => e.Destination == nextLocation);
-                    route.Add(edge);
-                }
-
-                double totalDistance = CalculateTotalDistance(route);
-
-                if (totalDistance < shortestDistance)
-                {
-                    shortestDistance = totalDistance;
-                    shortestRoute = route;
-                }
-            }
-
-            return shortestRoute;
-        }
-
-        private List<List<string>> GeneratePermutations(List<string> locations)
-        {
-            List<List<string>> permutations = new List<List<string>>();
-            GeneratePermutationsHelper(locations, 0, permutations);
-            return permutations;
-        }
-
-        private void GeneratePermutationsHelper(List<string> locations, int start, List<List<string>> permutations)
-        {
-            if (start == locations.Count - 1)
-            {
-                List<string> copy = new List<string>(locations);
-                permutations.Add(copy);
-            }
-            else
-            {
-                for (int i = start; i < locations.Count; i++)
-                {
-                    Swap(locations, start, i);
-                    GeneratePermutationsHelper(locations, start + 1, permutations);
-                    Swap(locations, start, i);
-                }
-            }
-        }
-
-        private void Swap(List<string> list, int i, int j)
-        {
-            string temp = list[i];
-            list[i] = list[j];
-            list[j] = temp;
-        }
 
         private double CalculateTotalDistance(List<Edge> route)
         {
