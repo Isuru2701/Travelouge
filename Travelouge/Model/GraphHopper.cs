@@ -17,6 +17,7 @@ namespace Travelouge.Model
 
     class GraphHopper
     {
+        //api key for graphhopper
         private string apiKey = "ca28dd3c-03d1-4da1-a05f-f9436d645b6e";
 
         //use to verify if a location exists

@@ -57,13 +57,24 @@ namespace Travelouge.Model
             
         }
 
+        public List<string> GetLocations()
+        {
+            List<string> locations = new List<string>();
+            foreach(string location in adjacencyList.Keys)
+            {
+                locations.Add(location);
+            }
+            return locations;
+        }
+       
+
         public bool Contains(string location)
         {
             return adjacencyList.ContainsKey(location);
         }
 
 
-        public void ToString()
+        public override string ToString()
         {
             string reply = "graph\n";
 
@@ -76,6 +87,7 @@ namespace Travelouge.Model
                     reply += $"(value {dest.Destination}, weight {dest.Weight})";
                 }
             }
+            return reply;
             
         }
 

@@ -36,6 +36,19 @@ namespace Travelouge.View
                 if (!locations.Contains(location.Name))
                 {
                     locations.AddLocation(location.Name);
+                    MessageBox.Show("Successfully added");
+
+                    //find the weights to each other locations
+                    foreach (var otherLocation in locations)
+                    {
+                        if (otherLocation != location.Name)
+                        {
+                            var distance = await verifier.GetDistance(location.Name, otherLocation);
+                            locations.AddEdge(location.Name, otherLocation, distance);
+                        }
+                    }
+
+
                 }
                 else
                 {
@@ -46,6 +59,12 @@ namespace Travelouge.View
             {
                 MessageBox.Show("Empty or invalid location");
             }
+        }
+
+        private void kruskalButton_Click(object sender, RoutedEventArgs e)
+        {
+            Graph MST = locations.Kruskal();
+            MessageBox.Show(MST.ToString());
         }
     }
 }
