@@ -22,16 +22,9 @@
         <TextBox
             Name="locationBox" 
             HorizontalAlignment="Left" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Height="51"/>
-        <Canvas
-            Name="graphCanvas"
-            Margin="242,0,0,0"/>
-
-        <ScrollViewer
-            Name="locationList"
-            Margin="0,171,563,0"/>
         <Button
             x:Name="kruskalButton"
-            Content="Find min spanning tree"
+            Content="Find most efficient route"
             HorizontalAlignment="Left"
             Margin="10,154,0,0"
             VerticalAlignment="Top"
@@ -45,6 +38,13 @@
             VerticalAlignment="Top"
             Height="52" Width="227"
             Click="resetButton_Click"/>
+        <Label Name="PathLabel"
+               FontSize="20px"
+             
+               Content="&lt;path info appears here&gt;" HorizontalAlignment="Left" Margin="295,18,0,0" VerticalAlignment="Top"/>
+        <Label 
+            Name="locationsLabel"
+            Content="&lt;&gt;" HorizontalAlignment="Left" Margin="10,287,0,0" VerticalAlignment="Top"/>
 
 
 

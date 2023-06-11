@@ -72,7 +72,13 @@ namespace Travelouge.View
                 reply += s + "\n";
             }
 
-            MessageBox.Show(reply);
+            
+        }
+
+        //used to draw on canvas
+        private void Draw()
+        {
+
         }
 
         private void resetButton_Click(object sender, RoutedEventArgs e)
