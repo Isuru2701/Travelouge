@@ -20,7 +20,7 @@ namespace Travelouge.View
     /// </summary>
     public partial class Home : Page
     {
-        private Graph Graph = new Graph();
+        private Graph locations = new Graph();
         public Home()
         {
             InitializeComponent();
@@ -33,9 +33,9 @@ namespace Travelouge.View
 
             if (location != null)
             {
-                if (!locations.Contains(location))
+                if (!locations.Contains(location.Name))
                 {
-                    locations.AddLast(location);
+                    locations.AddLocation(location.Name);
                 }
                 else
                 {

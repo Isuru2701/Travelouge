@@ -44,6 +44,7 @@ namespace Travelouge.Model
                 }
                 var geocodingResult = JsonConvert.DeserializeObject<GeocodingResult>(content);
 
+                //take first reply
                 var fetchData= new Location(geocodingResult.Hits[0].Name,
                     geocodingResult.Hits[0].point.lat,
                     geocodingResult.Hits[0].point.lng);               

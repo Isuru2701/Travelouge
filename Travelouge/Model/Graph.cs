@@ -63,15 +63,17 @@ namespace Travelouge.Model
         }
 
 
-        public void PrintGraph()
+        public void ToString()
         {
+            string reply = "graph\n";
+
             foreach(string key in adjacencyList.Keys)
             {
-                Console.WriteLine(key + " : ");
+                reply += $"\t key {key}:";
 
                 foreach(Edge dest in adjacencyList[key])
                 {
-                    Console.WriteLine(dest.Destination) ;
+                    reply += $"(value {dest.Destination}, weight {dest.Weight})";
                 }
             }
             

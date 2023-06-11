@@ -25,10 +25,20 @@
         <Canvas
             Name="graphCanvas"
             Margin="242,0,0,0"/>
-        
+
         <ScrollViewer
             Name="locationList"
             Margin="0,171,563,0"/>
+        <Button
+            x:Name="kruskalButton"
+            Content="Find min spanning tree"
+            HorizontalAlignment="Left"
+            Margin="10,154,0,0"
+            VerticalAlignment="Top"
+            Height="52" Width="227"
+            Click="kruskalButton_Click"/>
+
+
 
     </Grid>
 </Page>
