@@ -18,7 +18,7 @@ namespace Travelouge.Model
             adjacencyList = new Dictionary<string,List<Edge>>();
         }
 
-        public void addLocation(string location)
+        public void AddLocation(string location)
         {
             //if location already exists, no point in adding one again
             if(!adjacencyList.ContainsKey(location))
@@ -27,7 +27,7 @@ namespace Travelouge.Model
             }
         }
 
-        public void addEdge(string source, string dest, double distance)
+        public void AddEdge(string source, string dest, double distance)
         {
             if(!adjacencyList.ContainsKey(source) || !adjacencyList.ContainsKey(dest))
             {
@@ -42,7 +42,7 @@ namespace Travelouge.Model
             }
         }
 
-        public void removeLocation(string location)
+        public void RemoveLocation(string location)
         {
             if (adjacencyList.ContainsKey(location))
             {
@@ -63,7 +63,7 @@ namespace Travelouge.Model
         }
 
 
-        public void printGraph()
+        public void PrintGraph()
         {
             foreach(string key in adjacencyList.Keys)
             {
@@ -112,7 +112,7 @@ namespace Travelouge.Model
                 if(set.Find(edge.Destination) != set.Find(edge.Destination))
                 {
                     //add the edge to the MST
-                    MST.addEdge(edge.Destination, edge.Destination, edge.Weight);
+                    MST.AddEdge(edge.Destination, edge.Destination, edge.Weight);
 
                     //union the two vertices
                     set.Union(edge.Destination, edge.Destination);
@@ -129,7 +129,7 @@ namespace Travelouge.Model
          * calculates distance based on the Haversine formula
          * dont mind this too much
          */
-        public double calculateDisplacement(Location l1, Location l2)
+        public double CalculateDisplacement(Location l1, Location l2)
         {
             
             var r = 6371; // Radius of the earth in km
