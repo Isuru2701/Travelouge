@@ -39,7 +39,7 @@ namespace Travelouge.View
                     MessageBox.Show("Successfully added");
 
                     //find the weights to each other locations
-                    foreach (var otherLocation in locations)
+                    foreach (var otherLocation in locations.GetLocations())
                     {
                         if (otherLocation != location.Name)
                         {
