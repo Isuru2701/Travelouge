@@ -100,7 +100,7 @@ namespace Travelouge.Model
                 MessageBox.Show(content);
 
                 var json = JsonConvert.DeserializeObject<RoutingResult>(content);
-                return json.paths;
+                return json.paths[0];
             }
             
         }
@@ -141,7 +141,7 @@ namespace Travelouge.Model
     }
     class RoutingResult
     {
-        public RouteResponsePath paths { get; set; }
+        public RouteResponsePath[] paths { get; set; }
     }
 
 }
