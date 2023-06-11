@@ -80,12 +80,13 @@ namespace Travelouge.Model
 
             foreach(string key in adjacencyList.Keys)
             {
-                reply += $"\t key {key}:";
+                reply += $"\t src {key}:\n";
 
                 foreach(Edge dest in adjacencyList[key])
                 {
-                    reply += $"(value {dest.Destination}, weight {dest.Weight})";
+                    reply += $"\t\t(dest {dest.Destination}, weight {dest.Weight})";
                 }
+                reply += "\n";
             }
             return reply;
             

@@ -64,8 +64,8 @@ namespace Travelouge.View
 
         private void kruskalButton_Click(object sender, RoutedEventArgs e)
         {
-            Graph MST = locations.Kruskal();
-            MessageBox.Show(MST.ToString());
+            
+            MessageBox.Show(locations.ToString());
         }
 
         private void resetButton_Click(object sender, RoutedEventArgs e)
