@@ -45,6 +45,7 @@ namespace Travelouge.View
                         {
                             var route = await verifier.FindDistance(location.Name, otherLocation);
                             locations.AddEdge(location.Name, otherLocation, route.distance, route.time);
+                            MessageBox.Show("location.Name: " + location.Name + " otherLocation: " + otherLocation + " distance: " + route.distance + " time: " + route.time);
                         }
                     }
 

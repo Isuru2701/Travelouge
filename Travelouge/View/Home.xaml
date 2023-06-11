@@ -37,6 +37,14 @@
             VerticalAlignment="Top"
             Height="52" Width="227"
             Click="kruskalButton_Click"/>
+        <Button
+            x:Name="resetButton"
+            Content="Reset Graph"
+            HorizontalAlignment="Left"
+            Margin="10,211,0,0"
+            VerticalAlignment="Top"
+            Height="52" Width="227"
+            Click="resetButton_Click"/>
 
 
 

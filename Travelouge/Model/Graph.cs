@@ -91,6 +91,11 @@ namespace Travelouge.Model
             
         }
 
+        public void Reset()
+        {
+            adjacencyList.Clear();
+        }
+
         public Graph Kruskal()
         {
             //create a new graph to store the MST

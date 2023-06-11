@@ -85,6 +85,7 @@ namespace Travelouge.Model
                 {
 
                     MessageBox.Show(
+                        "an error occured" + "\n" +
                         destLocation.Name + " " + sourceLocation.Name + " " +
                         "\ndest " + destLocation.lat + " " + destLocation.lng + " " +
                         "\nsource " + sourceLocation.lat + " " + sourceLocation.lng + "\n" +
