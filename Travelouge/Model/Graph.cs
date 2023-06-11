@@ -57,6 +57,12 @@ namespace Travelouge.Model
             
         }
 
+        public bool Contains(string location)
+        {
+            return adjacencyList.ContainsKey(location);
+        }
+
+
         public void printGraph()
         {
             foreach(string key in adjacencyList.Keys)
@@ -68,6 +74,11 @@ namespace Travelouge.Model
                     Console.WriteLine(dest.Destination) ;
                 }
             }
+            
+        }
+
+        public Graph Kruskal()
+        {
             
         }
 
@@ -109,6 +120,43 @@ namespace Travelouge.Model
         {
             Destination = target;
             Weight = weight;
+        }
+    }
+
+    public class DisjointSet
+    {
+        private Dictionary<string, string> parent;
+
+        public DisjointSet()
+        {
+            parent = new Dictionary<string, string>();
+        }
+
+        public void MakeSet(string vertex)
+        {
+            parent[vertex] = vertex;
+        }
+
+        public string Find(string vertex)
+        {
+            if (parent[vertex] != vertex)
+            {
+                // Path compression
+                parent[vertex] = Find(parent[vertex]);
+            }
+
+            return parent[vertex];
+        }
+
+        public void Union(string vertex1, string vertex2)
+        {
+            string root1 = Find(vertex1);
+            string root2 = Find(vertex2);
+
+            if (root1 != root2)
+            {
+                parent[root2] = root1;
+            }
         }
     }
 }
