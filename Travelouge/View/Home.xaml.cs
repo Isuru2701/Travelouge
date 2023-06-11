@@ -72,18 +72,14 @@ namespace Travelouge.View
 
             var locationDictionary = locations.FindShortestRoute(out distance, out time);
 
-
+            
 
             foreach (string s in locationDictionary.Keys)
             {
-                //formatting time
-                TimeSpan timeSpan = TimeSpan.FromMilliseconds(locationDictionary[s].Item2);
-                string formattedTime = timeSpan.ToString(@"hh\:mm\:ss");
-
-                reply += s + $" ({locationDictionary[s].Item1 / 1000}km | {formattedTime} )   -> \n";
+                reply += s + $" ({Math.Round(locationDictionary[s].Item1 / 1000, 2)} km) -> \n";
             }
             reply += "END\n";
-            reply += "Total distance: " + distance + "\n" + "Total time: " + time + "\n";
+            reply += "Total distance: " + Math.Round(distance/1000, 2) + "km" + "\n" + "Total time: " + TimeSpan.FromMilliseconds(time).ToString(@"hh\:mm\:ss") + "\n";
 
             MessageBox.Show(reply);
             pathLabel.Text = reply;

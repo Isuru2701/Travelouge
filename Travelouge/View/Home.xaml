@@ -39,11 +39,11 @@
             Height="52" Width="227"
             Click="resetButton_Click"/>
         <TextBlock Name="pathLabel"
-               FontSize="15px"
+               FontSize="12px"
                FlowDirection="LeftToRight"
                TextWrapping="Wrap"
              
-               Text="&lt;path info appears here&gt;" HorizontalAlignment="Center" Margin="0,48,0,0" VerticalAlignment="Top"/>
+               Text="&lt;path info appears here&gt;" HorizontalAlignment="Left" Margin="433,54,0,0" VerticalAlignment="Top"/>
         <Label 
             Name="locationsLabel"
             Content="" HorizontalAlignment="Left" Margin="10,287,0,0" VerticalAlignment="Top"/>

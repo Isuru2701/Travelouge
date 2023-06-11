@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Travelouge.Model
 {
@@ -126,6 +127,9 @@ namespace Travelouge.Model
                 //find the nearest unvisited point from the current point
                 double minDistance = double.MaxValue;
                 string nearestLocation = "";
+                double time = 0;
+
+                //finding min ->
 
                 foreach (Edge edge in adjacencyList[currentLocation])
                 {
@@ -133,15 +137,22 @@ namespace Travelouge.Model
                     {
                         minDistance = edge.Weight;
                         nearestLocation = edge.Destination;
+                        time = edge.Time;
+                    }
+
+
+                    //if this is the end node, need to make sure the distanee is 0
+                    if(tours.Count == locations.Count - 1)
+                    {
+                        minDistance = 0;
                     }
                 }
 
                 totalDistance += minDistance;
 
-                var time = adjacencyList[currentLocation].Find(edge => edge.Destination == nearestLocation).Time;
 
                 //add location to the list, and mark it as visited and increment distance travelled
-                tours.Add(nearestLocation, (minDistance, time));
+                tours.Add(currentLocation, (minDistance, time));
 
                 //add time to total time
                 totalTime += time;
