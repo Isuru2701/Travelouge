@@ -98,14 +98,54 @@ namespace Travelouge.Model
         }
 
         
-        public List<Location> FindShortestRoute()
+        public List<string> FindShortestRoute(out double totalDistance)
         {
-            List<Location> tours = new List<Location>();
+            //using the Nearest neighbour technique
+
+            /**
+             * 1. Pick an arbitrary starting point
+             * 2. Find the nearest unvisited point from the current point
+             * 3. Move to that point
+             * 4. Add location to the list, and mark it as visited and increment distance travelled
+             * 5. Repeat steps 2-4 until all locations have been visited
+             * 6. Do not return to starting point
+             */
+            totalDistance = 0;
+            //list of locations that have been visited
+            List<string> tours = new List<string>();
+
+            List<string> locations = GetLocations();
 
 
+            //pick an arbitrary starting point
+            string currentLocation = locations[0];
 
+            foreach (string location in locations)
+            {
+                  //find the nearest unvisited point from the current point
+                double minDistance = double.MaxValue;
+                string nearestLocation = "";
+
+                foreach (Edge edge in adjacencyList[currentLocation])
+                {
+                    if (!tours.Contains(edge.Destination) && edge.Weight < minDistance)
+                    {
+                        minDistance = edge.Weight;
+                        nearestLocation = edge.Destination;
+                    }
+                }
+
+                //move to that point
+                currentLocation = nearestLocation;
+
+                //add location to the list, and mark it as visited and increment distance travelled
+                tours.Add(currentLocation);
+            }
+   
             return tours;
         }
+
+        
 
 
         private double CalculateTotalDistance(List<Edge> route)
