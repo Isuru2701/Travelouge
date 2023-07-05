@@ -75,6 +75,12 @@ namespace Travelouge.View
 
                 var locationDictionary = locations.FindShortestRoute(out distance, out time);
 
+                if(locationDictionary.Count < 2)
+                {
+                    MessageBox.Show("Not enough locations");
+                    return;
+                }
+
 
             foreach (string s in locationDictionary.Keys)
             {
