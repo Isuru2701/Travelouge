@@ -44,8 +44,17 @@ namespace Travelouge.View
                         if (otherLocation != location.Name)
                         {
                             var route = await verifier.FindDistance(location.Name, otherLocation);
-                            locations.AddEdge(location.Name, otherLocation, route.distance, route.time);
-                            MessageBox.Show("location.Name: " + location.Name + " otherLocation: " + otherLocation + " distance: " + route.distance + " time: " + route.time);
+
+                            if (route == null)
+                            {
+                                MessageBox.Show("This location doesnt have routes to some locations\n. Common causes include vauge location names. Try again.");
+                            }
+                            else
+                            {
+
+                                locations.AddEdge(location.Name, otherLocation, route.distance, route.time);
+                                MessageBox.Show("location.Name: " + location.Name + " otherLocation: " + otherLocation + " distance: " + route.distance + " time: " + route.time);
+                            }
                         }
                     }
 

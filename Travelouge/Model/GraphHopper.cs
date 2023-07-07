@@ -23,38 +23,46 @@ namespace Travelouge.Model
         //use to verify if a location exists
         public async Task<Location> VerifyLocation(string location)
         {
-            if(location == null || location.Equals(""))
+            try
             {
-                return null;
+                if (location == null || location.Equals(""))
+                {
+                    return null;
+                }
+                using (var client = new HttpClient())
+                {
+                    var url = $"https://graphhopper.com/api/1/geocode?q={Uri.EscapeDataString(location)}&key={apiKey}";
+
+                    var response = await client.GetAsync(url);
+                    var content = await response.Content.ReadAsStringAsync();
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("an error occured");
+                    }
+
+                    if (content == null)
+                    {
+                        return null;
+                    }
+                    var geocodingResult = JsonConvert.DeserializeObject<GeocodingResult>(content);
+
+                    //take first reply
+                    var fetchData = new Location(geocodingResult.Hits[0].Name,
+                        geocodingResult.Hits[0].point.lat,
+                        geocodingResult.Hits[0].point.lng);
+                    if (geocodingResult.Hits.Length == 0)
+                    {
+                        return null;
+                    }
+
+                    return fetchData;
+                }
             }
-            using (var client = new HttpClient())
+            catch(Exception ex)
             {
-                var url = $"https://graphhopper.com/api/1/geocode?q={Uri.EscapeDataString(location)}&key={apiKey}";
-
-                var response = await client.GetAsync(url);
-                var content = await response.Content.ReadAsStringAsync();
-
-                if (!response.IsSuccessStatusCode)
-                {
-                    MessageBox.Show("an error occured");
-                }
-
-                if(content == null)
-                {
-                    return null;
-                }
-                var geocodingResult = JsonConvert.DeserializeObject<GeocodingResult>(content);
-
-                //take first reply
-                var fetchData= new Location(geocodingResult.Hits[0].Name,
-                    geocodingResult.Hits[0].point.lat,
-                    geocodingResult.Hits[0].point.lng);               
-                if (geocodingResult.Hits.Length == 0)
-                {
-                    return null;
-                }
-                
-                return fetchData;
+                MessageBox.Show(ex.Message);
+                return null;
             }
         }
 
@@ -100,6 +108,7 @@ namespace Travelouge.Model
                 }
 
                 var json = JsonConvert.DeserializeObject<RoutingResult>(content);
+                if(json == null) { return null; }
                 return json.paths[0];
             }
             }
